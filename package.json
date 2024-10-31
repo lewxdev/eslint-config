@@ -1,0 +1,20 @@
+{
+  "name": "@lewxdev/eslint-config",
+  "version": "0.1.0",
+  "description": "An opinionated, shareable ESLint configuration for my projects.",
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "homepage": "https://github.com/lewxdev/eslint-config#readme",
+  "bugs": "https://github.com/lewxdev/eslint-config/issues",
+  "license": "MIT",
+  "author": "J. Lewis (https://github.com/lewxdev)",
+  "funding": "https://github.com/sponsors/lewxdev",
+  "main": "index.mjs",
+  "repository": "github:lewxdev/eslint-config",
+  "peerDependencies": {
+    "eslint": ">= 9"
+  },
+  "private": false
+}
