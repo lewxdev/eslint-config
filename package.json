@@ -11,6 +11,7 @@
   "license": "MIT",
   "author": "J. Lewis (https://github.com/lewxdev)",
   "funding": "https://github.com/sponsors/lewxdev",
+  "files": [],
   "main": "index.mjs",
   "repository": "github:lewxdev/eslint-config",
   "dependencies": {
