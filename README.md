@@ -15,10 +15,9 @@ npm install @lewxdev/eslint-config --save-dev
 To use this ESLint configuration, add the following to your `eslint.config.js` file:
 
 ```js
-import lewxdev from "@lewxdev/eslint-config";
+import { createConfig } from "@lewxdev/eslint-config";
 
-export default [
-  lewxdev,
-  // override configurations here
-]
+export default createConfig({
+  typescript: true,
+});
 ```
