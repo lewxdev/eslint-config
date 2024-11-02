@@ -3,11 +3,16 @@
 /** @import { ESLintRules } from "eslint/rules" */
 
 import eslint from "@eslint/js";
+import tslint from "typescript-eslint";
 
-/** @returns {Linter.Config<ESLintRules>[]} */
-export const createConfig = () => [
+/**
+ * @param {object} options
+ * @param {boolean} options.typescript
+ */
+export const createConfig = ({ typescript }) => [
   eslint.configs.all,
-  {
+  /** @type {Linter.Config<ESLintRules>} */
+  ({
     rules: {
       // possible problems
       "array-callback-return": ["error", { checkForEach: true }],
@@ -49,5 +54,6 @@ export const createConfig = () => [
       "sort-vars": "error", // consistent
       "yoda": ["error", "never", { exceptRange: true }], // clear
     },
-  },
+  }),
+  ...(typescript ? tslint.configs.strict : []),
 ];
