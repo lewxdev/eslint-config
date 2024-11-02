@@ -2,207 +2,221 @@
 /** @import { Linter } from "eslint" */
 /** @import { ESLintRules } from "eslint/rules" */
 
-/** @returns {Linter.Config<ESLintRules>} */
-export const createConfig = () => ({
-  rules: {
-    // possible problems
-    "array-callback-return": "error",
-    "constructor-super": "error",
-    "for-direction": "error",
-    "getter-return": "error",
-    "no-async-promise-executor": "error",
-    "no-await-in-loop": "error",
-    "no-class-assign": "error",
-    "no-compare-neg-zero": "error",
-    "no-cond-assign": "error",
-    "no-const-assign": "error",
-    "no-constant-binary-expression": "error",
-    "no-constant-condition": "error",
-    "no-constructor-return": "error",
-    "no-control-regex": "error",
-    "no-debugger": "error",
-    "no-dupe-args": "error",
-    "no-dupe-class-members": "error",
-    "no-dupe-else-if": "error",
-    "no-dupe-keys": "error",
-    "no-duplicate-case": "error",
-    "no-duplicate-imports": "error",
-    "no-empty-character-class": "error",
-    "no-empty-pattern": "error",
-    "no-ex-assign": "error",
-    "no-fallthrough": "error",
-    "no-func-assign": "error",
-    "no-import-assign": "error",
-    "no-inner-declarations": "error",
-    "no-invalid-regexp": "error",
-    "no-irregular-whitespace": "error",
-    "no-loss-of-precision": "error",
-    "no-misleading-character-class": "error",
-    "no-new-native-nonconstructor": "error",
-    "no-obj-calls": "error",
-    "no-promise-executor-return": "error",
-    "no-prototype-builtins": "error",
-    "no-self-assign": "error",
-    "no-self-compare": "error",
-    "no-setter-return": "error",
-    "no-sparse-arrays": "error",
-    "no-template-curly-in-string": "error",
-    "no-this-before-super": "error",
-    "no-undef": "error",
-    "no-unexpected-multiline": "error",
-    "no-unmodified-loop-condition": "error",
-    "no-unreachable-loop": "error",
-    "no-unreachable": "error",
-    "no-unsafe-finally": "error",
-    "no-unsafe-negation": "error",
-    "no-unsafe-optional-chaining": "error",
-    "no-unused-private-class-members": "error",
-    "no-unused-vars": "error",
-    "no-use-before-define": "error",
-    "no-useless-assignment": "error",
-    "no-useless-backreference": "error",
-    "require-atomic-updates": "error",
-    "use-isnan": "error",
-    "valid-typeof": "error",
+export const createConfig = () => {
+  /** @type {Linter.Config<ESLintRules>} */
+  const eslint = {
+    rules: {
+      // possible problems
+      "array-callback-return": ["error", { checkForEach: true }],
+      "constructor-super": "error",
+      "for-direction": "error",
+      "getter-return": "error",
+      "no-async-promise-executor": "error",
+      "no-await-in-loop": "error",
+      "no-class-assign": "error",
+      "no-compare-neg-zero": "error",
+      "no-cond-assign": ["error", "always"],
+      "no-const-assign": "error",
+      "no-constant-binary-expression": "error",
+      "no-constant-condition": "error",
+      "no-constructor-return": "error",
+      "no-control-regex": "error",
+      "no-debugger": "error",
+      "no-dupe-args": "error",
+      "no-dupe-class-members": "error",
+      "no-dupe-else-if": "error",
+      "no-dupe-keys": "error",
+      "no-duplicate-case": "error",
+      "no-duplicate-imports": "error",
+      "no-empty-character-class": "error",
+      "no-empty-pattern": "error",
+      "no-ex-assign": "error",
+      "no-fallthrough": "error",
+      "no-func-assign": "error",
+      "no-import-assign": "error",
+      // "no-inner-declarations": "error",
+      "no-invalid-regexp": "error",
+      "no-irregular-whitespace": "error",
+      "no-loss-of-precision": "error",
+      "no-misleading-character-class": "error",
+      "no-new-native-nonconstructor": "error",
+      "no-obj-calls": "error",
+      "no-promise-executor-return": "error",
+      "no-prototype-builtins": "error",
+      "no-self-assign": "error",
+      "no-self-compare": "error",
+      "no-setter-return": "error",
+      "no-sparse-arrays": "error",
+      "no-template-curly-in-string": "error",
+      "no-this-before-super": "error",
+      "no-undef": "error",
+      "no-unexpected-multiline": "error",
+      "no-unmodified-loop-condition": "error",
+      "no-unreachable": "error",
+      "no-unreachable-loop": "error",
+      "no-unsafe-finally": "error",
+      "no-unsafe-negation": "error",
+      "no-unsafe-optional-chaining": "error",
+      "no-unused-private-class-members": "error",
+      "no-unused-vars": "error",
+      // "no-use-before-define": "error",
+      "no-useless-assignment": "error",
+      "no-useless-backreference": "error",
+      "require-atomic-updates": "error",
+      "use-isnan": "error",
+      "valid-typeof": "error",
 
-    // suggestions
-    "accessor-pairs": "error",
-    "arrow-body-style": "error",
-    "block-scoped-var": "error",
-    "camelcase": "error",
-    "capitalized-comments": "error",
-    "class-methods-use-this": "error",
-    "complexity": "error",
-    "consistent-return": "error",
-    "consistent-this": "error",
-    "curly": "error",
-    "default-case-last": "error",
-    "default-case": "error",
-    "default-param-last": "error",
-    "dot-notation": "error",
-    "eqeqeq": "error",
-    "func-name-matching": "error",
-    "func-names": "error",
-    "func-style": "error",
-    "grouped-accessor-pairs": "error",
-    "guard-for-in": "error",
-    "id-denylist": "error",
-    "id-length": "error",
-    "id-match": "error",
-    "init-declarations": "error",
-    "logical-assignment-operators": "error",
-    "max-classes-per-file": "error",
-    "max-depth": "error",
-    "max-lines-per-function": "error",
-    "max-lines": "error",
-    "max-nested-callbacks": "error",
-    "max-params": "error",
-    "max-statements": "error",
-    "new-cap": "error",
-    "no-alert": "error",
-    "no-array-constructor": "error",
-    "no-bitwise": "error",
-    "no-caller": "error",
-    "no-case-declarations": "error",
-    "no-console": "error",
-    "no-continue": "error",
-    "no-delete-var": "error",
-    "no-div-regex": "error",
-    "no-else-return": "error",
-    "no-empty-function": "error",
-    "no-empty-static-block": "error",
-    "no-empty": "error",
-    "no-eq-null": "error",
-    "no-eval": "error",
-    "no-extend-native": "error",
-    "no-extra-bind": "error",
-    "no-extra-boolean-cast": "error",
-    "no-extra-label": "error",
-    "no-global-assign": "error",
-    "no-implicit-coercion": "error",
-    "no-implicit-globals": "error",
-    "no-implied-eval": "error",
-    "no-inline-comments": "error",
-    "no-invalid-this": "error",
-    "no-iterator": "error",
-    "no-label-var": "error",
-    "no-labels": "error",
-    "no-lone-blocks": "error",
-    "no-lonely-if": "error",
-    "no-loop-func": "error",
-    "no-magic-numbers": "error",
-    "no-multi-assign": "error",
-    "no-multi-str": "error",
-    "no-negated-condition": "error",
-    "no-nested-ternary": "error",
-    "no-new-func": "error",
-    "no-new-wrappers": "error",
-    "no-new": "error",
-    "no-nonoctal-decimal-escape": "error",
-    "no-object-constructor": "error",
-    "no-octal-escape": "error",
-    "no-octal": "error",
-    "no-param-reassign": "error",
-    "no-plusplus": "error",
-    "no-proto": "error",
-    "no-redeclare": "error",
-    "no-regex-spaces": "error",
-    "no-restricted-exports": "error",
-    "no-restricted-globals": "error",
-    "no-restricted-imports": "error",
-    "no-restricted-properties": "error",
-    "no-restricted-syntax": "error",
-    "no-return-assign": "error",
-    "no-script-url": "error",
-    "no-sequences": "error",
-    "no-shadow-restricted-names": "error",
-    "no-shadow": "error",
-    "no-ternary": "error",
-    "no-throw-literal": "error",
-    "no-undef-init": "error",
-    "no-undefined": "error",
-    "no-underscore-dangle": "error",
-    "no-unneeded-ternary": "error",
-    "no-unused-expressions": "error",
-    "no-unused-labels": "error",
-    "no-useless-call": "error",
-    "no-useless-catch": "error",
-    "no-useless-computed-key": "error",
-    "no-useless-concat": "error",
-    "no-useless-constructor": "error",
-    "no-useless-escape": "error",
-    "no-useless-rename": "error",
-    "no-useless-return": "error",
-    "no-var": "error",
-    "no-void": "error",
-    "no-warning-comments": "error",
-    "no-with": "error",
-    "object-shorthand": "error",
-    "one-var": "error",
-    "operator-assignment": "error",
-    "prefer-arrow-callback": "error",
-    "prefer-const": "error",
-    "prefer-destructuring": "error",
-    "prefer-exponentiation-operator": "error",
-    "prefer-named-capture-group": "error",
-    "prefer-numeric-literals": "error",
-    "prefer-object-has-own": "error",
-    "prefer-object-spread": "error",
-    "prefer-promise-reject-errors": "error",
-    "prefer-regex-literals": "error",
-    "prefer-rest-params": "error",
-    "prefer-spread": "error",
-    "prefer-template": "error",
-    "radix": "error",
-    "require-await": "error",
-    "require-unicode-regexp": "error",
-    "require-yield": "error",
-    "sort-imports": "error",
-    "sort-keys": "error",
-    "sort-vars": "error",
-    "strict": "error",
-    "symbol-description": "error",
-    "vars-on-top": "error",
-    "yoda": "error",
-  },
-});
+      // suggestions
+      "accessor-pairs": "error", // consistent
+      "arrow-body-style": "error", // consistent
+      "block-scoped-var": "off", // see: no-var
+      "camelcase": "error", // style
+      "capitalized-comments": ["error", "never"], // style
+      "class-methods-use-this": "error", // optimized
+      "complexity": "off",
+      "consistent-return": "error", // consistent
+      "consistent-this": "off",
+      "curly": "error", // consistent
+      "default-case-last": "error", // consistent
+      "default-case": "error", // consistent
+      "default-param-last": "error", // consistent
+      "dot-notation": "error", // consistent (may conflict with ts)
+      "eqeqeq": "error", // consistent
+      "func-name-matching": "error", // consistent
+      "func-names": "error", // consistent
+      "func-style": ["error", "declaration"], // consistent
+      "grouped-accessor-pairs": ["error", "getBeforeSet"], // consistent
+      "guard-for-in": "error", // consistent
+      "id-denylist": [
+        "error",
+        // abbreviations
+        "ctx", "err", "evt", "msg", "obj", "opt", "opts", "req", "res", "str", "val",
+        // non-descriptive
+        "callback", "data", "item", "items", "result", "results",
+        // placeholders
+        "foo", "bar", "baz", "qux",
+      ], // clear
+      "id-length": ["error", { min: 3, max: 30, exceptions: ["n", "x", "y", "z"] }], // clear
+      "id-match": "off",
+      "init-declarations": "error", // consistent
+      "logical-assignment-operators": ["error", "never"], // clear
+      "max-classes-per-file": "error", // clear
+      "max-depth": ["error", { max: 3 + 1 }], // clear
+      "max-lines-per-function": "off",
+      "max-lines": ["error", { max: 300 }], // clear
+      "max-nested-callbacks": ["error", { max: 3 + 1 }], // clear
+      "max-params": ["error", { max: 2 }], // clear, consistent (should always use options)
+      "max-statements": "off",
+      "new-cap": "error", // consistent
+      "no-alert": "error", // prod [browser]
+      "no-array-constructor": "error", // consistent
+      "no-bitwise": "error", // safe
+      "no-caller": "error", // modern
+      "no-case-declarations": "error", // consistent
+      "no-console": "error",  // prod [browser]
+      "no-continue": "off",
+      "no-delete-var": "error", // consistent
+      "no-div-regex": "off", // see: logical-assignment-operators
+      "no-else-return": ["error", { allowElseIf: false }], // consistent
+      "no-empty-function": "error", // clear (no noop!)
+      "no-empty-static-block": "error", // optimized
+      "no-empty": "error", // optimized
+      "no-eq-null": "off", // see: eqeqeq
+      "no-eval": "error", // safe
+      "no-extend-native": "error", // expected
+      "no-extra-bind": "error", // optimized
+      "no-extra-boolean-cast": "error", // optimized
+      "no-extra-label": "off", // see: no-labels
+      "no-global-assign": "error", // expected
+      "no-implicit-coercion": ["error", { allow: ["!!"] }], // clear
+      "no-implicit-globals": "error", // clear
+      "no-implied-eval": "error", // safe
+      "no-inline-comments": "off",
+      "no-invalid-this": "error", // consistent
+      "no-iterator": "error", // modern
+      "no-label-var": "off", // see: no-labels
+      "no-labels": "error", // clear
+      "no-lone-blocks": "error", // clear
+      "no-lonely-if": "error", // clear
+      "no-loop-func": "error", // expected
+      "no-magic-numbers": "error", // clear
+      "no-multi-assign": "error", // safe
+      "no-multi-str": "error", // clear
+      "no-negated-condition": "error", // clear
+      "no-nested-ternary": "error", // clear
+      "no-new-func": "error", // safe
+      "no-new-wrappers": "error", // clear
+      "no-new": "error", // consistent
+      "no-nonoctal-decimal-escape": "error", // modern
+      "no-object-constructor": "error", // consistent
+      "no-octal-escape": "error", // modern
+      "no-octal": "error", // safe
+      "no-param-reassign": "error", // clear
+      "no-plusplus": ["error", { allowForLoopAfterthoughts: true }], // clear
+      "no-proto": "error", // modern
+      "no-redeclare": "off", // see: no-var
+      "no-regex-spaces": "error", // clear
+      "no-restricted-exports": "off",
+      "no-restricted-globals": "off",
+      "no-restricted-imports": "off",
+      "no-restricted-properties": "off",
+      "no-restricted-syntax": "off",
+      "no-return-assign": "error", // clear
+      "no-script-url": "error", // safe
+      "no-sequences": "error", // clear
+      "no-shadow": "error", // clear
+      "no-shadow-restricted-names": "error", // expected
+      "no-ternary": "off",
+      "no-throw-literal": "error", // consistent
+      "no-undef-init": "error", // consistent
+      "no-undefined": "off", // see: no-shadow-restricted-names
+      "no-underscore-dangle": "error", // clear [ES2022+]
+      "no-unneeded-ternary": "error", // clear
+      "no-unused-expressions": "error", // consistent
+      "no-unused-labels": "off", // see: no-labels
+      "no-useless-call": "error", // consistent
+      "no-useless-catch": "error", // consistent
+      "no-useless-computed-key": "error", // consistent
+      "no-useless-concat": "error", // consistent
+      "no-useless-constructor": "error", // consistent [ES2015+]
+      "no-useless-escape": "error", // consistent
+      "no-useless-rename": "error", // consistent
+      "no-useless-return": "error", // consistent
+      "no-var": "error", // consistent [ES2015+]
+      "no-void": "error", // clear
+      "no-warning-comments": ["error", {
+        location: "anywhere",
+        // these types of comments should be documented in an issue tracker
+        terms: ["todo", "fixme"],
+      }], // documented
+      "no-with": "error",
+      "object-shorthand": "error", // clear
+      "one-var": ["error", "never"], // clear
+      "operator-assignment": ["error", "never"], // clear
+      "prefer-arrow-callback": "error", // consistent
+      "prefer-const": "error", // consistent [ES2015+]
+      "prefer-destructuring": "error", // clear [ES2015+]
+      "prefer-exponentiation-operator": "error", // clear [ES2016+]
+      "prefer-named-capture-group": "error", // clear [ES2018+]
+      "prefer-numeric-literals": "error", // clear [ES2015+]
+      "prefer-object-has-own": "error", // clear [ES2022+]
+      "prefer-object-spread": "error", // clear [ES2018+]
+      "prefer-promise-reject-errors": "error", // consistent [ES2017+]
+      "prefer-regex-literals": "error", // clear
+      "prefer-rest-params": "error", // clear [ES2015+]
+      "prefer-spread": "error", // clear [ES2015+]
+      "prefer-template": "error", // clear [ES2015+]
+      "radix": "error", // consistent
+      "require-await": "error", // consistent
+      "require-unicode-regexp": "error", // consistent
+      "require-yield": "error", // consistent
+      "sort-imports": ["error", { memberSyntaxSortOrder: ["multiple", "single", "all", "none"] }], // consistent
+      "sort-keys": ["error", "asc", { natural: true }], // consistent
+      "sort-vars": "error", // consistent
+      "strict": "error",
+      "symbol-description": "error", // clear [ES2015+]
+      "vars-on-top": "off", // see: no-var
+      "yoda": ["error", "never", { exceptRange: true }], // clear
+    },
+  };
+}
