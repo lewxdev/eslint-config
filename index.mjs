@@ -7,11 +7,13 @@ import tslint from "typescript-eslint";
 
 /**
  * @param {object} options
- * @param {boolean} options.typescript
+ * @param {keyof typeof eslint.configs} [options.base="all"]
+ * @param {boolean} [options.typescript=true]
+ * @param {Partial<ESLintRules>} [options.rules]
+ * @returns {Linter.Config<ESLintRules>[]}
  */
-export const createConfig = ({ typescript }) => [
-  eslint.configs.all,
-  /** @type {Linter.Config<ESLintRules>} */
+export const createConfig = ({ base = "all", typescript = true, rules }) => [
+  eslint.configs[base],
   ({
     rules: {
       // possible problems
@@ -55,5 +57,6 @@ export const createConfig = ({ typescript }) => [
       "yoda": ["error", "never", { exceptRange: true }], // clear
     },
   }),
-  ...(typescript ? tslint.configs.strict : []),
+  ...(typescript ? /** @type {Linter.Config[]} */ (tslint.configs.strict) : []),
+  { rules },
 ];
