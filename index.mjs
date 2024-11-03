@@ -1,18 +1,11 @@
-// @ts-check
 /** @import { Linter } from "eslint" */
-/** @import { ESLintRules } from "eslint/rules" */
+/** @import { CreateConfig } from "." */
 
 import eslint from "@eslint/js";
 import tslint from "typescript-eslint";
 
-/**
- * @param {object} options
- * @param {keyof typeof eslint.configs} [options.base="all"]
- * @param {boolean} [options.typescript=true]
- * @param {Partial<ESLintRules>} [options.rules]
- * @returns {Linter.Config<ESLintRules>[]}
- */
-export const createConfig = ({ base = "all", typescript = true, rules }) => [
+/** @type {CreateConfig} */
+export const createConfig = ({ base = "all", typescript = true }) => [
   eslint.configs[base],
   ({
     rules: {
@@ -57,6 +50,8 @@ export const createConfig = ({ base = "all", typescript = true, rules }) => [
       "yoda": ["error", "never", { exceptRange: true }], // clear
     },
   }),
-  ...(typescript ? /** @type {Linter.Config[]} */ (tslint.configs.strict) : []),
-  { rules },
+  ...(typescript
+    ? // the typescript-eslint configs use more strict types than eslint
+      /** @type {Linter.Config[]} */ (tslint.configs.strict)
+    : []),
 ];
