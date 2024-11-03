@@ -4,13 +4,7 @@ import type { ESLintRules } from "eslint/rules";
 
 type ConfigOptions = {
   /**
-   * The base configuration to extend
-   * @default "all"
-   */
-  base?: keyof typeof eslint.configs;
-  /**
-   * If `true`, typescript-eslint will be included and eslint rules already
-   * handled by typescript will be disabled
+   * @description If `true`, typescript-eslint will be included
    * @default true
    */
   typescript?: boolean;

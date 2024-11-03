@@ -5,8 +5,8 @@ import eslint from "@eslint/js";
 import tslint from "typescript-eslint";
 
 /** @type {CreateConfig} */
-export const createConfig = ({ base = "all", typescript = true } = {}) => [
-  eslint.configs[base],
+export const createConfig = ({ typescript = true } = {}) => [
+  eslint.configs.all,
   ({
     rules: {
       // possible problems
@@ -14,10 +14,10 @@ export const createConfig = ({ base = "all", typescript = true } = {}) => [
       "no-cond-assign": ["error", "always"],
 
       // suggestions
-      "capitalized-comments": ["error", "never"], // style
+      "capitalized-comments": ["error", "never"],
       "complexity": "off",
-      "func-style": ["error", "declaration"], // consistent
-      "grouped-accessor-pairs": ["error", "getBeforeSet"], // consistent
+      "func-style": ["error", "declaration"],
+      "grouped-accessor-pairs": ["error", "getBeforeSet"],
       "id-denylist": [
         "error",
         // abbreviations
@@ -26,28 +26,30 @@ export const createConfig = ({ base = "all", typescript = true } = {}) => [
         "callback", "data", "item", "items", "result", "results",
         // placeholders
         "foo", "bar", "baz", "qux",
-      ], // clear
-      "id-length": ["error", { min: 3, max: 30, exceptions: ["n", "x", "y", "z"] }], // clear
-      "id-match": "off",
+      ],
+      "id-length": ["error", { min: 3, max: 30 }],
       "max-lines-per-function": "off",
-      "max-nested-callbacks": ["error", { max: 3 + 1 }], // clear
-      "max-params": ["error", { max: 2 }], // clear, consistent (should always use options)
+      "max-nested-callbacks": ["error", { max: 3 + 1 }],
+      "max-params": ["error", {
+        // prefer an options object to improve readability and refactoring
+        max: 2,
+      }],
       "max-statements": "off",
-      "no-else-return": ["error", { allowElseIf: false }], // consistent
-      "no-implicit-coercion": ["error", { allow: ["!!"] }], // clear
+      "no-else-return": ["error", { allowElseIf: false }],
+      "no-implicit-coercion": ["error", { allow: ["!!"] }],
       "no-inline-comments": "off",
-      "no-plusplus": ["error", { allowForLoopAfterthoughts: true }], // clear
+      "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
       "no-ternary": "off",
       "no-warning-comments": ["error", {
         location: "anywhere",
         // these types of comments should be documented in an issue tracker
         terms: ["todo", "fixme"],
-      }], // documented
-      "one-var": ["error", "never"], // clear
-      "sort-imports": ["error", { memberSyntaxSortOrder: ["multiple", "single", "all", "none"] }], // consistent
-      "sort-keys": ["error", "asc", { natural: true }], // consistent
-      "sort-vars": "error", // consistent
-      "yoda": ["error", "never", { exceptRange: true }], // clear
+      }],
+      "one-var": ["error", "never"],
+      "sort-imports": ["error", { memberSyntaxSortOrder: ["multiple", "single", "all", "none"] }],
+      "sort-keys": ["error", "asc", { natural: true }],
+      "sort-vars": "error",
+      "yoda": ["error", "never", { exceptRange: true }],
     },
   }),
   ...(typescript
