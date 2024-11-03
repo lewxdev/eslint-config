@@ -1,6 +1,8 @@
 # @lewxdev/eslint-config
 
-An opinionated, shareable ESLint configuration for my projects.
+An opinionated ESLint config with a focus on clarity, consistency, and DX. I'm
+currently migrating all my project to use this configuration, so it's still a
+work in progress.
 
 ## Usage
 

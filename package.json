@@ -1,7 +1,7 @@
 {
   "name": "@lewxdev/eslint-config",
   "version": "0.1.0",
-  "description": "An opinionated, shareable ESLint configuration for my projects.",
+  "description": "An opinionated ESLint config with a focus on clarity, consistency, and DX.",
   "keywords": [
     "eslint",
     "eslintconfig"
