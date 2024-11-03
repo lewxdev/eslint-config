@@ -18,4 +18,4 @@ type ConfigOptions = {
 
 type CreateConfig = typeof createConfig;
 
-export const createConfig: (config: ConfigOptions) => Linter.Config<ESLintRules>[];
+export const createConfig: (options?: ConfigOptions) => Linter.Config<ESLintRules>[];

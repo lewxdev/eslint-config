@@ -5,7 +5,7 @@ import eslint from "@eslint/js";
 import tslint from "typescript-eslint";
 
 /** @type {CreateConfig} */
-export const createConfig = ({ base = "all", typescript = true }) => [
+export const createConfig = ({ base = "all", typescript = true } = {}) => [
   eslint.configs[base],
   ({
     rules: {
