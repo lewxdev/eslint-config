@@ -28,7 +28,14 @@ export const createConfig = ({ typescript = true, configs = [] } = {}) => [
         // placeholders
         "foo", "bar", "baz", "qux",
       ],
-      "id-length": ["error", { min: 3, max: 30 }],
+      "id-length": ["error", {
+        min: 3,
+        max: 30,
+        exceptions: [
+          // node modules
+          "fs", "os", "v8", "vm"
+        ],
+      }],
       "max-lines-per-function": "off",
       "max-nested-callbacks": ["error", { max: 3 + 1 }],
       "max-params": ["error", {
