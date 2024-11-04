@@ -2,10 +2,11 @@
 /** @import { CreateConfig } from "." */
 
 import eslint from "@eslint/js";
+import globals from "globals";
 import tslint from "typescript-eslint";
 
 /** @type {CreateConfig} */
-export const createConfig = ({ typescript = true } = {}) => [
+export const createConfig = ({ typescript = true, configs = [] } = {}) => [
   eslint.configs.all,
   ({
     rules: {
@@ -56,4 +57,20 @@ export const createConfig = ({ typescript = true } = {}) => [
     ? // the typescript-eslint configs use more strict types than eslint
       /** @type {Linter.Config[]} */ (tslint.configs.strict)
     : []),
+
+  // extended configs
+  ...configs.map(({ env, ...config }) => env
+    ? {
+        ...config,
+        languageOptions: {
+          ...config.languageOptions,
+          globals: {
+            ...Object.assign(
+              config.languageOptions?.globals || {},
+              ...env.map((key) => globals[key]),
+            ),
+          },
+        },
+      }
+    : config),
 ];

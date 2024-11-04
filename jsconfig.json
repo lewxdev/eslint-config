@@ -1,4 +1,7 @@
 {
   "extends": "@tsconfig/strictest",
-  "include": ["index.mjs"]
+  "include": ["index.mjs"],
+  "compilerOptions": {
+    "lib": ["es6"]
+  },
 }
