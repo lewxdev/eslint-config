@@ -14,7 +14,13 @@ type ConfigOptions = {
    * @description Additional configs to include, with optional environments
    * @default []
    */
-  configs?: (Linter.Config<ESLintRules> & { env?: (keyof typeof globals)[] })[];
+  configs?: (Linter.Config<ESLintRules> & {
+    /**
+     * @description An optional list of environments to include
+     * @see {@link https://eslint.org/docs/v9.x/use/configure/language-options#predefined-global-variables}
+     */
+    env?: (keyof typeof globals)[]
+  })[];
 };
 
 type CreateConfig = typeof createConfig;
