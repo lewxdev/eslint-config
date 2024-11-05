@@ -33,7 +33,9 @@ export const createConfig = ({ typescript = true, configs = [] } = {}) => [
         max: 30,
         exceptions: [
           // node modules
-          "fs", "os", "v8", "vm"
+          "fs", "os", "v8", "vm",
+          // shenanigans
+          "$"
         ],
       }],
       "max-lines-per-function": "off",
@@ -46,6 +48,11 @@ export const createConfig = ({ typescript = true, configs = [] } = {}) => [
       "no-else-return": ["error", { allowElseIf: false }],
       "no-implicit-coercion": ["error", { allow: ["!!"] }],
       "no-inline-comments": "off",
+      "no-magic-numbers": ["error", {
+        enforceConst: true,
+        ignore: [0, 1],
+        ignoreArrayIndexes: true,
+      }],
       "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
       "no-ternary": "off",
       "no-warning-comments": ["error", {
